@@ -281,6 +281,37 @@ body{padding-bottom:76px}
  .ready-overlay p{font-size:14px}
  .ready-overlay .ready-btn{padding:11px 22px;font-size:13.5px}
 }
+</style><style>
+/* 모바일 상단 메뉴 정리: 한 줄 가로 스크롤 (줄바꿈/눌림 방지) */
+@media(max-width:900px){
+ .topbar .inner{flex-wrap:nowrap !important}
+ .topbar .nav{
+   order:0 !important;
+   width:auto !important;
+   flex:1 1 auto;
+   min-width:0;
+   justify-content:flex-start !important;
+   overflow-x:auto;
+   overflow-y:hidden;
+   -webkit-overflow-scrolling:touch;
+   scrollbar-width:none;
+   border-top:0 !important;
+   margin-top:0 !important;
+   padding-top:0 !important;
+   mask-image:linear-gradient(to right,#000 calc(100% - 26px),transparent 100%);
+   -webkit-mask-image:linear-gradient(to right,#000 calc(100% - 26px),transparent 100%);
+ }
+ .topbar .nav::-webkit-scrollbar{display:none}
+ .topbar .nav a{
+   flex:0 0 auto;
+   white-space:nowrap;
+   padding:6px 12px !important;
+ }
+ .brand{flex:0 0 auto !important}
+}
+@media(max-width:520px){
+ .topbar .nav a{font-size:10.5px !important;padding:6px 10px !important}
+}
 </style></head>
 <body>
 <header class="topbar"><div class="wrap inner"><a href="#top" class="brand"><span class="brand-text"><span class="brand-title"><b>『무진기행』</b> 따라 걷는 순천 문학</span></span></a><nav class="nav"><a href="#intro">프로그램 소개</a><a href="#checklist-priority">당일 준비</a><a href="#schedule">당일 일정</a><a href="#insurance">여행자보험</a><a href="#check">출발 전 확인</a><a href="#etc">기타 문의</a></nav></div></header>
