@@ -141,17 +141,17 @@
 .cta-arrow{font-size:17px;line-height:1;margin-left:2px}
 @media(max-width:900px){.brand-title{font-size:14px !important}.brand-title b{font-size:16px !important}.brand-sub{display:none}.insurance-cta{padding:8px 10px !important;font-size:11px}.cta-arrow{display:none}.cta-dot{width:6px;height:6px}}
 </style><style>
-/* 메뉴 항상 노출 유지 (모바일 포함) */
-.nav-toggle{display:none !important}
-.topbar .nav{display:flex !important;position:static !important;flex-direction:row !important;background:transparent !important;padding:0 !important;box-shadow:none !important;border:0 !important}
+/* 메뉴 항상 노출 유지 (PC 전용) / 모바일은 햄버거 버튼으로 토글 */
+@media(min-width:901px){
+ .nav-toggle{display:none !important}
+ .topbar .nav{display:flex !important;position:static !important;flex-direction:row !important;background:transparent !important;padding:0 !important;box-shadow:none !important;border:0 !important}
+}
 @media(max-width:900px){
- .topbar .inner{height:auto !important;padding:10px 0;flex-wrap:wrap;gap:8px !important}
+ .topbar .inner{height:64px !important;padding:0;flex-wrap:nowrap !important;gap:8px !important}
  .brand{flex:1 1 auto;min-width:0}
  .brand-title{font-size:13px !important;letter-spacing:-.055em !important}
  .brand-title b{font-size:15px !important}
  .brand-sub{display:none}
- .topbar .nav{order:3;width:100%;justify-content:space-between;gap:6px !important;font-size:11px !important;padding-top:6px !important;border-top:1px dashed rgba(120,104,75,.25) !important;margin-top:4px !important}
- .topbar .nav a{padding:2px 0 !important}
  .insurance-cta{padding:8px 12px !important;font-size:11.5px !important}
  .cta-arrow{display:none}
 }
@@ -282,39 +282,44 @@ body{padding-bottom:76px}
  .ready-overlay .ready-btn{padding:11px 22px;font-size:13.5px}
 }
 </style><style>
-/* 모바일 상단 메뉴 정리: 한 줄 가로 스크롤 (줄바꿈/눌림 방지) */
+/* 모바일 전용 햄버거 메뉴 */
+.nav-toggle{margin-left:auto}
 @media(max-width:900px){
- .topbar .inner{flex-wrap:nowrap !important}
+ .nav-toggle{display:flex !important}
  .topbar .nav{
-   order:0 !important;
-   width:auto !important;
-   flex:1 1 auto;
-   min-width:0;
-   justify-content:flex-start !important;
-   overflow-x:auto;
-   overflow-y:hidden;
-   -webkit-overflow-scrolling:touch;
-   scrollbar-width:none;
-   border-top:0 !important;
-   margin-top:0 !important;
-   padding-top:0 !important;
-   mask-image:linear-gradient(to right,#000 calc(100% - 26px),transparent 100%);
-   -webkit-mask-image:linear-gradient(to right,#000 calc(100% - 26px),transparent 100%);
+   display:flex;
+   position:absolute;
+   top:64px;
+   left:0;
+   right:0;
+   flex-direction:column;
+   align-items:stretch;
+   background:#fbfaf6;
+   padding:14px 20px 18px;
+   gap:8px !important;
+   max-height:0;
+   overflow:hidden;
+   opacity:0;
+   visibility:hidden;
+   border-bottom:1px solid rgba(120,104,75,.2);
+   box-shadow:0 10px 20px rgba(58,42,26,.1);
+   transition:max-height .25s ease, opacity .2s ease;
  }
- .topbar .nav::-webkit-scrollbar{display:none}
- .topbar .nav a{
-   flex:0 0 auto;
-   white-space:nowrap;
-   padding:6px 12px !important;
+ .topbar .nav.open{
+   max-height:70vh;
+   opacity:1;
+   visibility:visible;
+   overflow-y:auto;
  }
- .brand{flex:0 0 auto !important}
-}
-@media(max-width:520px){
- .topbar .nav a{font-size:10.5px !important;padding:6px 10px !important}
+ .topbar .nav a{width:100%;text-align:center;box-sizing:border-box}
+ .nav-toggle.open span:nth-child(1){transform:translateY(5.6px) rotate(45deg)}
+ .nav-toggle.open span:nth-child(2){opacity:0}
+ .nav-toggle.open span:nth-child(3){transform:translateY(-5.6px) rotate(-45deg)}
+ .nav-toggle span{transition:.2s ease}
 }
 </style></head>
 <body>
-<header class="topbar"><div class="wrap inner"><a href="#top" class="brand"><span class="brand-text"><span class="brand-title"><b>『무진기행』</b> 따라 걷는 순천 문학</span></span></a><nav class="nav"><a href="#intro">프로그램 소개</a><a href="#checklist-priority">당일 준비</a><a href="#schedule">당일 일정</a><a href="#insurance">여행자보험</a><a href="#check">출발 전 확인</a><a href="#etc">기타 문의</a></nav></div></header>
+<header class="topbar"><div class="wrap inner"><a href="#top" class="brand"><span class="brand-text"><span class="brand-title"><b>『무진기행』</b> 따라 걷는 순천 문학</span></span></a><nav class="nav" id="mainNav"><a href="#intro">프로그램 소개</a><a href="#checklist-priority">당일 준비</a><a href="#schedule">당일 일정</a><a href="#insurance">여행자보험</a><a href="#check">출발 전 확인</a><a href="#etc">기타 문의</a></nav><button type="button" class="nav-toggle" id="navToggle" aria-label="메뉴 열기" aria-expanded="false" aria-controls="mainNav"><span></span><span></span><span></span></button></div></header>
 <main id="top">
 <style>
 .intro{background:linear-gradient(180deg,#fbfaf6 0%,#f4f0e7 100%);padding:80px 0 90px;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
@@ -364,6 +369,31 @@ body{padding-bottom:76px}
  
 <section class="insurance" id="insurance"><div class="wrap"><div><div class="eyebrow">Travel insurance</div><h2>여행자보험 가입하기</h2><p>프로그램 당일 안전을 위해 아래 버튼을 통해 가입을 진행해주세요.<br><span style="display:inline-block;margin-top:8px;color:var(--rust);font-weight:600">※ 9월 11일 금요일 18:00 전까지 반드시 가입 완료 (별도 비용 없음)</span></p></div><a class="btn secondary" href="javascript:void(0)" onclick="openInsuranceModal()">가입 페이지로 이동 <span>→</span></a></div></section><section class="final-check" id="check"><div class="wrap"><div class="fc-head"><div class="eyebrow" style="color:var(--rust)">Final check</div><h2>출발 전 최종 확인!</h2><p class="fc-sub">체크 표시를 하나씩 확인하며 준비를 마쳐 주세요.</p></div><div class="fc-list"><label class="fc-item"><input type="checkbox"/><span class="fc-box"></span><div><b>여행자보험은 가입하셨나요?</b><small>9월 11일(금) 18:00 전까지 · 별도 비용 없음</small></div></label><label class="fc-item"><input type="checkbox"/><span class="fc-box"></span><div><b>스마트폰을 완충하셨나요?</b><small>오디오북 재생을 위해 배터리를 가득 채워 주세요.</small></div></label><label class="fc-item"><input type="checkbox"/><span class="fc-box"></span><div><b>‘오디언도서관’ 앱을 설치하셨나요?</b><small>로그인은 당일 집결장소에서 안내해드립니다.</small></div></label><label class="fc-item"><input type="checkbox"/><span class="fc-box"></span><div><b>걷기 편한 신발을 준비하셨나요?</b><small>약 3.5km 야외 이동이 있습니다.</small></div></label><label class="fc-item"><input type="checkbox"/><span class="fc-box"></span><div><b>볼캡(챙 모자)을 준비하셨나요?</b><small>헤드셋 착용에 방해가 적은 볼캡 형태를 추천합니다.</small></div></label><label class="fc-item"><input type="checkbox"/><span class="fc-box"></span><div><b>집결 시간과 장소를 확인하셨나요?</b><small>15:30 · 순천만에코촌<br>전남 순천시 해룡면 생태배움길 123</small></div></label></div></div></section><section class="insurance" id="etc"><div class="wrap"><div><div class="eyebrow">Other questions</div><h2>기타 문의</h2><p>궁금한 점이 있으면 카카오톡 채널로 편하게 문의해 주세요.</p></div><a class="btn kakao-btn" href="http://pf.kakao.com/_MlBxan/chat" target="_blank" rel="noopener"><span class="kakao-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3C6.48 3 2 6.58 2 11c0 2.86 1.87 5.36 4.68 6.77l-.98 3.6c-.09.34.28.6.58.42l4.3-2.83c.47.05.94.08 1.42.08 5.52 0 10-3.58 10-8S17.52 3 12 3z" fill="#3a2a1a"/></svg></span>카카오톡으로 문의하기 <span class="btn-arrow">→</span></a></div></section>
 </main><footer class="footer"><div class="wrap"><div>무진기행 따라 걷는 순천 문학</div><div>주최·주관 순천시립어울림도서관 &nbsp;|&nbsp; 운영 SIMDA</div></div></footer><a class="bottom-cta" href="#checklist-priority">당일 준비 확인하기 ↓</a>
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+  var navToggle=document.getElementById('navToggle');
+  var mainNav=document.getElementById('mainNav');
+  if(navToggle && mainNav){
+    function closeNav(){
+      mainNav.classList.remove('open');
+      navToggle.classList.remove('open');
+      navToggle.setAttribute('aria-expanded','false');
+    }
+    function toggleNav(){
+      var isOpen=mainNav.classList.toggle('open');
+      navToggle.classList.toggle('open',isOpen);
+      navToggle.setAttribute('aria-expanded',isOpen?'true':'false');
+    }
+    navToggle.addEventListener('click',function(e){e.stopPropagation();toggleNav();});
+    mainNav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeNav);});
+    document.addEventListener('click',function(e){
+      if(mainNav.classList.contains('open') && !mainNav.contains(e.target) && !navToggle.contains(e.target)){closeNav();}
+    });
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')closeNav();});
+    window.addEventListener('resize',function(){if(window.innerWidth>900){closeNav();}});
+  }
+});
+</script>
 <script>
 document.addEventListener('DOMContentLoaded',function(){
   var boxes=document.querySelectorAll('.final-check .fc-item input[type="checkbox"]');
