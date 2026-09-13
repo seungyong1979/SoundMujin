@@ -253,6 +253,7 @@
 /* 모바일 전용 햄버거 메뉴 */
 .nav-toggle{margin-left:auto}
 .nav-survey{display:none}
+.nav-gallery-mobile{display:none}
 @media(max-width:900px){
  .nav-toggle{display:flex !important}
  .topbar .nav{
@@ -282,6 +283,7 @@
  }
  .topbar .nav a{width:100%;text-align:center;box-sizing:border-box}
  .nav-survey{display:block !important;margin-top:6px;padding-top:14px !important;border-top:1px dashed rgba(120,104,75,.3);color:#984d2c !important;font-weight:700}
+ .nav-gallery-mobile{display:block !important;margin-top:2px;color:#5a4a35 !important;font-weight:600}
  .nav-toggle.open span:nth-child(1){transform:translateY(5.6px) rotate(45deg)}
  .nav-toggle.open span:nth-child(2){opacity:0}
  .nav-toggle.open span:nth-child(3){transform:translateY(-5.6px) rotate(-45deg)}
@@ -289,7 +291,7 @@
 }
 </style></head>
 <body>
-<header class="topbar"><div class="wrap inner"><a href="#top" class="brand"><span class="brand-text"><span class="brand-title"><b>『무진기행』</b> 따라 걷는 순천 문학</span></span></a><nav class="nav" id="mainNav"><a href="#intro">프로그램 소개</a><a href="#checklist-priority">당일 준비</a><a href="#schedule">당일 일정</a><a href="#insurance">여행자보험</a><a href="#check">출발 전 확인</a><a href="#etc">기타 문의</a><a href="#gallery">갤러리</a><a href="https://naver.me/5Z13aRDY" target="_blank" rel="noopener" class="nav-survey">만족도 조사</a></nav><button type="button" class="nav-toggle" id="navToggle" aria-label="메뉴 열기" aria-expanded="false" aria-controls="mainNav"><span></span><span></span><span></span></button></div></header>
+<header class="topbar"><div class="wrap inner"><a href="#top" class="brand"><span class="brand-text"><span class="brand-title"><b>『무진기행』</b> 따라 걷는 순천 문학</span></span></a><nav class="nav" id="mainNav"><a href="#intro">프로그램 소개</a><a href="#checklist-priority">당일 준비</a><a href="#schedule">당일 일정</a><a href="#insurance">여행자보험</a><a href="#check">출발 전 확인</a><a href="#etc">기타 문의</a><a href="#gallery">갤러리</a><a href="https://naver.me/5Z13aRDY" target="_blank" rel="noopener" class="nav-survey">만족도 조사</a><a href="#gallery" class="nav-gallery-mobile">프로그램 돌아보기 (Gallery)</a></nav><button type="button" class="nav-toggle" id="navToggle" aria-label="메뉴 열기" aria-expanded="false" aria-controls="mainNav"><span></span><span></span><span></span></button></div></header>
 <main id="top">
 <style>
 .intro{background:linear-gradient(180deg,#fbfaf6 0%,#f4f0e7 100%);padding:80px 0 90px;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
@@ -343,7 +345,7 @@
 .gallery-head h2{font-family:'Noto Serif KR',serif;font-size:30px;margin:5px 0 10px;letter-spacing:-.06em}
 .gallery-head p{margin:0;color:var(--muted);max-width:640px}
 .gallery-marquee{position:relative;width:100%;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 5%,#000 95%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 5%,#000 95%,transparent 100%)}
-.gallery-track{display:flex;gap:16px;width:max-content;animation:galleryScroll 70s linear infinite}
+.gallery-track{display:flex;gap:16px;width:max-content;animation:galleryScroll 150s linear infinite}
 .gallery-marquee:hover .gallery-track{animation-play-state:paused}
 .gallery-item{flex:0 0 auto;width:240px;height:160px;border-radius:4px;overflow:hidden;cursor:pointer;position:relative;box-shadow:0 6px 16px rgba(50,42,28,.14);border:1px solid var(--line);background:#e7e0d0}
 .gallery-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s ease}
@@ -353,7 +355,7 @@
 .gallery-item .zoom-ico{position:absolute;right:10px;bottom:10px;width:30px;height:30px;border-radius:50%;background:rgba(251,250,246,.92);display:flex;align-items:center;justify-content:center;opacity:0;transform:translateY(6px);transition:.25s;color:var(--rust);font-size:15px}
 .gallery-item:hover .zoom-ico{opacity:1;transform:translateY(0)}
 @keyframes galleryScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@media(max-width:700px){.gallery-item{width:180px;height:126px}.gallery-track{gap:12px;animation-duration:50s}}
+@media(max-width:700px){.gallery-item{width:180px;height:126px}.gallery-track{gap:12px;animation-duration:110s}}
 .glb-overlay{position:fixed;inset:0;background:rgba(20,16,10,.88);z-index:10000;display:none;align-items:center;justify-content:center;padding:24px;animation:fadeIn .2s ease}
 .glb-overlay.open{display:flex}
 .glb-box{position:relative;max-width:min(920px,92vw);max-height:90vh;display:flex;flex-direction:column;align-items:center}
