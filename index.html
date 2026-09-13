@@ -291,7 +291,7 @@
 }
 </style></head>
 <body>
-<header class="topbar"><div class="wrap inner"><a href="#top" class="brand"><span class="brand-text"><span class="brand-title"><b>『무진기행』</b> 따라 걷는 순천 문학</span></span></a><nav class="nav" id="mainNav"><a href="#intro">프로그램 소개</a><a href="#checklist-priority">당일 준비</a><a href="#schedule">당일 일정</a><a href="#insurance">여행자보험</a><a href="#check">출발 전 확인</a><a href="#etc">기타 문의</a><a href="#gallery">갤러리</a><a href="https://naver.me/5Z13aRDY" target="_blank" rel="noopener" class="nav-survey">만족도 조사</a><a href="#gallery" class="nav-gallery-mobile">프로그램 돌아보기 (Gallery)</a></nav><button type="button" class="nav-toggle" id="navToggle" aria-label="메뉴 열기" aria-expanded="false" aria-controls="mainNav"><span></span><span></span><span></span></button></div></header>
+<header class="topbar"><div class="wrap inner"><a href="#top" class="brand"><span class="brand-text"><span class="brand-title"><b>『무진기행』</b> 따라 걷는 순천 문학</span></span></a><nav class="nav" id="mainNav"><a href="#intro">프로그램 소개</a><a href="#checklist-priority">당일 준비</a><a href="#schedule">당일 일정</a><a href="#insurance">여행자보험</a><a href="#check">출발 전 확인</a><a href="#etc">기타 문의</a><a href="#gallery" onclick="if(window.innerWidth<=900){setTimeout(function(){openGalleryLightbox(0);},350);}">갤러리</a><a href="https://naver.me/5Z13aRDY" target="_blank" rel="noopener" class="nav-survey">만족도 조사</a><a href="#gallery" class="nav-gallery-mobile" onclick="setTimeout(function(){openGalleryLightbox(0);},350);">프로그램 돌아보기 (Gallery)</a></nav><button type="button" class="nav-toggle" id="navToggle" aria-label="메뉴 열기" aria-expanded="false" aria-controls="mainNav"><span></span><span></span><span></span></button></div></header>
 <main id="top">
 <style>
 .intro{background:linear-gradient(180deg,#fbfaf6 0%,#f4f0e7 100%);padding:80px 0 90px;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
@@ -371,7 +371,7 @@
 .glb-prev{left:-58px}
 .glb-next{right:-58px}
 @media(max-width:820px){.glb-prev{left:6px}.glb-next{right:6px}.glb-nav{width:38px;height:38px}}
-</style><section class="gallery-section" id="gallery"><div class="wrap"><div class="gallery-head"><div class="eyebrow">Gallery</div><h2>갤러리</h2><p>『무진기행』 따라 걷는 순천 문학 현장의 순간들을 만나보세요. 사진을 클릭하면 크게 보고 다운로드할 수 있습니다.</p></div></div><div class="gallery-marquee" id="galleryMarquee"><div class="gallery-track" id="galleryTrack"></div></div></section>
+</style><section class="gallery-section" id="gallery"><div class="wrap"><div class="gallery-head"><div class="eyebrow">Gallery</div><h2>갤러리</h2><p>《『무진기행』 따라 걷는 순천 문학》 프로그램 현장의 순간들을 만나보세요. 사진을 클릭하면 크게 보고 다운로드할 수 있습니다.</p></div></div><div class="gallery-marquee" id="galleryMarquee"><div class="gallery-track" id="galleryTrack"></div></div></section>
 </main><footer class="footer"><div class="wrap"><div>무진기행 따라 걷는 순천 문학</div><div>주최·주관 순천시립어울림도서관 &nbsp;|&nbsp; 운영 SIMDA</div></div></footer>
 <script>
 document.addEventListener('DOMContentLoaded',function(){
@@ -507,7 +507,7 @@ function updateGlbImage(){
   var img=document.getElementById('glbImage');
   img.src=item.f;
   img.alt=item.c;
-  document.getElementById('glbCounter').textContent=(glbIndex+1)+' / '+galleryData.length+'  ·  '+item.c;
+  document.getElementById('glbCounter').textContent=(glbIndex+1)+' / '+galleryData.length;
   var dl=document.getElementById('glbDownload');
   dl.href=item.f;
   dl.setAttribute('download',item.d);
