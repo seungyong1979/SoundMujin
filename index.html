@@ -496,7 +496,7 @@ var galleryData=[
   if(!track)return;
   var html='';
   galleryData.forEach(function(item,idx){
-    html+='<div class="gallery-item" onclick="openGalleryLightbox('+idx+')"><img src="'+item.t+'" alt="'+item.c+'" loading="lazy"/><span class="zoom-ico">⤢</span></div>';
+    html+='<div class="gallery-item" onclick="openGalleryLightbox(0)"><img src="'+item.t+'" alt="'+item.c+'" loading="lazy"/><span class="zoom-ico">⤢</span></div>';
   });
   track.innerHTML=html+html;
 })();
