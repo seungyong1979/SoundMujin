@@ -311,6 +311,45 @@
  .nav-toggle.open span:nth-child(3){transform:translateY(-5.6px) rotate(-45deg)}
  .nav-toggle span{transition:.2s ease}
 }
+</style>
+<style>
+/* 전시용 최종 정리: 상단 타이틀(브랜드명) 숨김 - 몰입형 전시 화면 */
+.topbar .brand{display:none !important}
+.topbar .inner{justify-content:center !important}
+.topbar .nav{margin-left:0 !important}
+
+/* 태블릿 가로모드(아이패드/안드로이드) 전용 여백·크기 최적화 */
+@media (orientation: landscape) and (min-width: 768px) and (max-width: 1400px){
+ .topbar .inner{height:56px !important}
+ .topbar .nav{gap:6px !important}
+ .topbar .nav a{padding:7px 12px !important;font-size:12px !important}
+ .hero .wrap{min-height:auto !important;padding:36px 0 !important}
+ .hero h1{font-size:clamp(30px,3.6vw,46px) !important;margin:10px 0 14px !important}
+ .hero .lead{font-size:15px !important;line-height:1.7 !important;margin:0 0 18px !important}
+ .hero-art{height:300px !important}
+ .hero-art:before{height:300px !important;width:min(100%,220px) !important}
+ .date-chip{padding:6px 0 !important}
+ .section{padding:44px 0 !important}
+ .intro{padding:44px 0 48px !important}
+ .section h2{margin:4px 0 18px !important;font-size:clamp(24px,3vw,34px) !important}
+ .section-intro{margin-bottom:16px !important}
+ .intro .wrap{gap:32px !important}
+ .intro-facts,.intro-flow{margin-top:18px !important;padding-top:16px !important}
+ .fact{padding:14px 14px !important}
+ .route,.schedule{gap:32px !important}
+ .notice{padding:18px 22px !important;margin-top:24px !important}
+ .checks{gap:10px !important}
+ .check{padding:16px 16px 16px 46px !important}
+ .payment{margin-top:16px !important}
+ .payment-card{padding:20px !important}
+ .contact{padding:32px 0 !important}
+ .gallery-item{width:220px !important;height:146px !important}
+ .glb-box{max-height:94vh !important}
+ .glb-box img{max-height:80vh !important}
+ .glb-prev{left:10px !important}
+ .glb-next{right:10px !important}
+ .glb-nav{width:40px !important;height:40px !important}
+}
 </style></head>
 <body>
 <header class="topbar"><div class="wrap inner"><a href="#top" class="brand"><span class="brand-text"><span class="brand-title"><b>『무진기행』</b> 따라 걷는 순천 문학</span></span></a><nav class="nav" id="mainNav"><a href="#intro">프로그램 소개</a><a href="#checklist-priority">당일 준비</a><a href="#schedule">당일 일정</a><a href="#insurance">여행자보험</a><a href="#check">출발 전 확인</a><a href="#etc">기타 문의</a><a href="#gallery" onclick="if(window.innerWidth<=900){setTimeout(function(){openGalleryLightbox(0);},350);}">갤러리</a><a href="https://naver.me/5Z13aRDY" target="_blank" rel="noopener" class="nav-survey">만족도 조사</a><a href="#gallery" class="nav-gallery-mobile" onclick="setTimeout(function(){openGalleryLightbox(0);},350);">프로그램 돌아보기 (Gallery)</a></nav><button type="button" class="nav-toggle" id="navToggle" aria-label="메뉴 열기" aria-expanded="false" aria-controls="mainNav"><span></span><span></span><span></span></button></div></header>

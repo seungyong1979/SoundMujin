@@ -1,6 +1,6 @@
 // 무진기행 따라 걷는 순천 문학 - Service Worker
 // 전시/오프라인(비행기모드) 사용을 위한 전체 자산 캐싱 서비스 워커
-var CACHE_VERSION = 'mujin-v1';
+var CACHE_VERSION = 'mujin-v2';
 var CACHE_NAME = 'mujin-cache-' + CACHE_VERSION;
 
 var PRECACHE_URLS = [
