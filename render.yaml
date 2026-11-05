@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: soundmujin2
+    runtime: static
+    repo: https://github.com/seungyong1979/SoundMujin
+    branch: genspark_ai_developer
+    buildCommand: "echo 'no build needed - static site'"
+    staticPublishPath: ./public
+    autoDeployTrigger: commit
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    headers:
+      - path: /*
+        name: Cache-Control
+        value: public, max-age=0, must-revalidate
